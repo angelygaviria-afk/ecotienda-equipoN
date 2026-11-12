@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: le dice al navegador que esta pagina es HTML5. Siempre va en la primera linea -->
+<!-- html: encierra TODA la pagina. lang="es": el texto esta en espanol -->
+<html lang="es">
+<!-- head: datos de la pagina que NO se ven (titulo, estilos, fuentes, scripts) -->
+<head>
+    <!-- meta charset="UTF-8": permite tildes y enes (sin esto, "Catálogo" saldria "CatÃ¡logo") -->
+    <meta charset="UTF-8">
+    <!-- meta viewport: en el celular, la pagina usa el ancho real de la pantalla, sin zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title: el texto de la pestana del navegador -->
+    <title>Nosotros · Volt Energía</title>
+    <!-- link a Bootstrap: hoja de estilos ya hecha, desde internet (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Google Fonts: la fuente Poppins. preconnect abre la conexion antes, para que cargue mas rapido -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- crossorigin: el archivo de la fuente viene de otro sitio (gstatic.com); asi lo permite -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- La hoja de la fuente: grosor normal (400) y negrilla (700) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <!-- La hoja de estilos PROPIA: la MISMA de index.html, asi las dos paginas se ven iguales -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+<!-- Cierra el head -->
+</head>
+<!-- body: todo lo que se ve. container centra el contenido; py-3 deja espacio arriba y abajo -->
+<body class="container py-3">
+    <!-- header: el encabezado, igual al de index.html (clase propia "encabezado") -->
+    <header class="encabezado">
+        <!-- h1: el titulo principal de esta pagina -->
+        <h1>Volt Energía</h1>
+        <!-- p: un parrafo que explica la pagina -->
+        <p>Optimización y ahorro para tu consumo en tiempos de El Niño 2026.</p>
+        <!-- nav: el menu, con un enlace (a) a cada pagina -->
+        <nav class="menu">
+            <!-- href: la pagina a la que lleva el enlace -->
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        <!-- Cierra el menu -->
+        </nav>
+    <!-- Cierra el encabezado -->
+    </header>
+
+    <!-- main: el contenido principal: Tarjetas de los 2 integrantes -->
+    <main class="my-4">
+        <section>
+            <h2 class="mb-4 text-center">Nuestro Equipo</h2>
+
+            <div class="tarjetas">
+
+            <!-- Integrante 1  -->
+              <article class="tarjeta p-4">
+                <h3 class="h4 text-center mb-2">María Isabel Santamaría Uribe</h3>
+                <p class="text-primary fw-bold text-center mb-3">
+                 <strong>Rol:</strong> Maquetación Web, Identidad de Marca & Estilos CSS3  
+                <ul class="mb-0 text-start">
+                    <li>Identidad visual de Volt Energía e integración de datos reales del sector eléctrico (XM) en <code>index.html</code>.</li>
+                    <li>Estructura HTML5 y menú de navegación unificado de las 4 páginas del sitio.</li>
+                    <li>Hoja de estilos <code>css/estilos.css</code> con paleta en variables CSS, modelo de caja, Flexbox, CSS Grid y transiciones.</li>
+                    <li>Implementación de selectores avanzados, pseudoclases y control de versiones en Git.</li>
+                    <li>Validación del código HTML5/CSS3 ante la W3C y documentación conjunta del proyecto.</li>
+
+                </ul>
+             </article>
+
+            <!-- Integrante 2  -->
+              <article class="tarjeta p-4">
+                <h3 class="h4 text-center mb-2">Angely Nikol Gaviria Barrera</h3>
+                <p class="text-primary fw-bold text-center mb-3">
+                 <strong>Rol:</strong> Programación JavaScript, Estilos Sass & Repositorio</p>  
+                <ul class="mb-0 text-start">
+                    <li>Creación y administración del repositorio en GitHub y despliegue en GitHub Pages.</li>
+                    <li>Programación dinámica del catálogo y cálculos de ahorro en <code>js/tienda.js</code>.</li>
+                    <li>Desarrollo del sistema de filtros interactivos, buscador en tiempo real y lógica del carrito de compras.</li>
+                    <li>Verificación sin errores en la consola del navegador y documentación conjunta del proyecto.</li>
+                    <li>Diseño responsivo para móviles,personalización de Bootstrap y estilos en Sass.</li>
+
+
+          </ul>
+         </article>
+        </div>
+        </section>
+    <!-- Cierra el contenido principal -->
+    </main>
+
+    <!-- footer: el pie de pagina, con su clase propia "pie" -->
+    <footer class="pie">
+        <!-- Aviso: los productos no son reales -->
+        <p>Los productos y sus precios son de ejemplo.</p>
+        <!-- El curso y la institucion -->
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    <!-- Cierra el pie de pagina -->
+    </footer>
+<!-- Cierra el cuerpo: aqui termina lo que se ve -->
+</body>
+<!-- Cierra la pagina -->
+</html>
