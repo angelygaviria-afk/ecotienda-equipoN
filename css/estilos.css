@@ -1,0 +1,224 @@
+/* 1. PALETA DE COLORES EN VARIABLES CSS (5 colores en :root) */
+:root {
+  --color-principal: #0D3B66; /* Azul Noche Profundo */
+  --color-acento: #00B4D8;    /* Azul Eléctrico / Cian */
+  --color-suave: #CAF0F8;     /* Celeste Claro */
+  --color-fondo: #F4F7FA;     /* Fondo Gris Frío */
+  --color-texto: #1E293B;     /* Texto Oscuro Slate */
+}
+
+/* 2. SELECTOR DE ETIQUETA y FUENTE GOOGLE FONTS */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. SELECTOR AGRUPADO */
+h1, h2, h3 {
+  color: var(--color-principal);
+  font-weight: 700;
+}
+
+/* 4. SELECTOR DE CLASE y MODELO DE CAJA (margin, padding, border-radius, box-shadow) */
+.encabezado {
+  background-color: var(--color-principal);
+  margin-bottom: 24px;                          /* Modelo de caja: margin */
+  padding: 24px;                                /* Modelo de caja: padding */
+  border-radius: 12px;                          /* Modelo de caja: border-radius */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);   /* Modelo de caja: box-shadow */
+}
+
+
+/* 5. SELECTOR DESCENDIENTE */
+.encabezado h1 {
+  color: white;
+}
+.encabezado p {
+  color: var(--color-suave);
+}
+@media (max-width: 576px) {
+  .encabezado {
+    padding: 16px;
+  }
+  .encabezado h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* 6. SELECTOR DE ID */
+#intro {
+  background-color: white;
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  border-left: 6px solid var(--color-acento); /* Modelo de caja: border */
+  border-radius: 12px;
+}
+
+/* FLEXBOX 1: MENÚ DE NAVEGACIÓN DISPUESTO CON FLEXBOX */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+@media (max-width: 576px) {
+  .menu {
+    flex-direction: column;
+  }
+}
+
+/* 7. SELECTOR HIJO DIRECTO (>) y TRANSICIÓN 1 */
+.menu > a {
+  color: white;
+  text-decoration: none;
+  padding: 6px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  transition: all 0.3s ease; /* Transición 1: Suaviza color, fondo y sombra */
+}
+
+/* 8. PSEUDOCLASE 1: :hover */
+.menu > a:hover {
+  background-color: white;
+  color: var(--color-principal);
+}
+/* 9. PSEUDOCLASE 2: :focus */
+.menu > a:focus {
+  outline: 3px solid var(--color-acento);
+}
+
+/* GRID 1: DISPOSICIÓN DEL CÁTALAGO EN CUADRÍCULA */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (max-width: 992px) {
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TRANSICIÓN 2 (EFECTO SUAVE DE ELEVACIÓN Y SOMBRA) */
+.tarjeta {
+  background-color: white;
+  border: 1px solid var(--color-suave);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición 2 */
+}
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(13, 59, 102, 0.15);  /* Sombra que se profundiza al elevarse */
+
+}
+/* 10. PSEUDOCLASE 3: :first-child (Pseudoclase adicional) */
+.tarjeta:first-child {
+  border-top: 6px solid var(--color-acento);
+}
+/* 11. PSEUDOCLASE 4: :nth-child() */
+.tarjeta p:nth-child(2) {
+  min-height: 48px;
+}
+
+.precio {
+  color: var(--color-principal);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.categoria {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background-color: var(--color-suave);
+  color: var(--color-principal);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.ahorro {
+  color: #0284C7;
+  font-weight: 700;
+}
+
+/* FLEXBOX 2: FILTROS DE CATEGORÍAS */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filtro {
+  border: 2px solid var(--color-principal);
+  background-color: white;
+  color: var(--color-principal);
+  padding: 6px 16px;
+  border-radius: 999px;
+  transition: background-color 0.3s;
+}
+.filtro:hover, .filtro.activo {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 992px) {
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
+}
+
+#carrito {
+  background-color: white;
+  border: 2px solid var(--color-acento);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  position: sticky;
+  top: 16px;
+}
+
+/* 12. SELECTOR DE ATRIBUTO */
+a[target=_blank] {
+  color: var(--color-principal);
+  font-weight: 700;
+}
+
+.pie {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-suave);
+  color: #52606D;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--color-principal);
+  --bs-btn-border-color: var(--color-principal);
+  --bs-btn-hover-bg: var(--color-acento);
+  --bs-btn-hover-border-color: var(--color-acento);
+  --bs-btn-hover-color: #1F2933;
+}
+
+.alert-warning {
+  background-color: #FFF8E1;
+  border-color: #F9A825;
+  border-left: 6px solid #F9A825;
+  border-radius: 12px;
+}
