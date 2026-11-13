@@ -1,43 +1,51 @@
-/* 1. PALETA DE COLORES EN VARIABLES CSS (5 colores en :root) */
+@charset "UTF-8";
+/* =============================================================
+// PARCIAL de Sass: solo variables y mixins.
+// El guion bajo (_variables.scss) le dice a Sass que este archivo
+// no se compila solo: se usa desde estilos.scss con @use.
+// ============================================================= */
+/* --- Variables de Sass: empiezan con $ y solo existen al compilar ---*/
+/* Azul Noche Profundo */
+/* Azul Eléctrico / Cian */
+/* Celeste Claro */
+/* Fondo Gris Frío */
+/* Texto Oscuro Slate */
+/* esquinas redondeadas */
+/* sombra suave: abajo 4px, difuminada 12px, negro al 12 % */
+/* Anchos de pantalla para el diseno responsivo */
+/*  hasta este ancho se considera tablet */
+/* hasta este ancho se considera celular */
+/* --- Mixin: un grupo de propiedades con nombre, que se reutiliza con @include ---
+/* relleno tiene un valor por defecto (16px) si no se le pasa otro*/
 :root {
-  --color-principal: #0D3B66; /* Azul Noche Profundo */
-  --color-acento: #00B4D8;    /* Azul Eléctrico / Cian */
-  --color-suave: #CAF0F8;     /* Celeste Claro */
-  --color-fondo: #F4F7FA;     /* Fondo Gris Frío */
-  --color-texto: #1E293B;     /* Texto Oscuro Slate */
+  --color-principal: #0D3B66;
+  --color-acento: #00B4D8;
+  --color-suave: #CAF0F8;
 }
 
-/* 2. SELECTOR DE ETIQUETA y FUENTE GOOGLE FONTS */
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background-color: var(--color-fondo);
-  color: var(--color-texto);
-  margin: 0;
-  padding: 0;
+  background-color: #F4F7FA;
+  color: #1E293B;
 }
 
-/* 3. SELECTOR AGRUPADO */
 h1, h2, h3 {
-  color: var(--color-principal);
+  color: #0D3B66;
   font-weight: 700;
 }
 
-/* 4. SELECTOR DE CLASE y MODELO DE CAJA (margin, padding, border-radius, box-shadow) */
 .encabezado {
-  background-color: var(--color-principal);
-  margin-bottom: 24px;                          /* Modelo de caja: margin */
-  padding: 24px;                                /* Modelo de caja: padding */
-  border-radius: 12px;                          /* Modelo de caja: border-radius */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);   /* Modelo de caja: box-shadow */
+  background-color: #0D3B66;
+  margin-bottom: 24px;
+  padding: 24px; /*el relleno que se le pase (o 16px)*/
+  border-radius: 12px; /* esquinas redondeadas*/
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* sombra*/
 }
-
-
-/* 5. SELECTOR DESCENDIENTE */
 .encabezado h1 {
   color: white;
 }
 .encabezado p {
-  color: var(--color-suave);
+  color: #E3F2E3;
 }
 @media (max-width: 576px) {
   .encabezado {
@@ -48,16 +56,14 @@ h1, h2, h3 {
   }
 }
 
-/* 6. SELECTOR DE ID */
 #intro {
   background-color: white;
   padding: 16px 24px;
   margin-bottom: 24px;
-  border-left: 6px solid var(--color-acento); /* Modelo de caja: border */
+  border-left: 6px solid #00B4D8;
   border-radius: 12px;
 }
 
-/* FLEXBOX 1: MENÚ DE NAVEGACIÓN DISPUESTO CON FLEXBOX */
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -68,28 +74,22 @@ h1, h2, h3 {
     flex-direction: column;
   }
 }
-
-/* 7. SELECTOR HIJO DIRECTO (>) y TRANSICIÓN 1 */
 .menu > a {
   color: white;
   text-decoration: none;
   padding: 6px 16px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
-  transition: all 0.3s ease; /* Transición 1: Suaviza color, fondo y sombra */
+  transition: background-color 0.3s, color 0.3s;
 }
-
-/* 8. PSEUDOCLASE 1: :hover */
 .menu > a:hover {
   background-color: white;
-  color: var(--color-principal);
+  color: #0D3B66;
 }
-/* 9. PSEUDOCLASE 2: :focus */
 .menu > a:focus {
-  outline: 3px solid var(--color-acento);
+  outline: 3px solid #00B4D8;
 }
 
-/* GRID 1: DISPOSICIÓN DEL CÁTALAGO EN CUADRÍCULA */
 .tarjetas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -107,31 +107,26 @@ h1, h2, h3 {
   }
 }
 
-/* TRANSICIÓN 2 (EFECTO SUAVE DE ELEVACIÓN Y SOMBRA) */
 .tarjeta {
   background-color: white;
-  border: 1px solid var(--color-suave);
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición 2 */
+  border: 1px solid #CAF0F8;
+  padding: 16px; /*el relleno que se le pase (o 16px)*/
+  border-radius: 12px; /* esquinas redondeadas*/
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* sombra*/
+  transition: transform 0.3s;
 }
 .tarjeta:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(13, 59, 102, 0.15);  /* Sombra que se profundiza al elevarse */
-
 }
-/* 10. PSEUDOCLASE 3: :first-child (Pseudoclase adicional) */
 .tarjeta:first-child {
-  border-top: 6px solid var(--color-acento);
+  border-top: 6px solid #00B4D8;
 }
-/* 11. PSEUDOCLASE 4: :nth-child() */
 .tarjeta p:nth-child(2) {
   min-height: 48px;
 }
 
 .precio {
-  color: var(--color-principal);
+  color: #0D3B66;
   font-size: 1.3rem;
   font-weight: 700;
 }
@@ -140,18 +135,15 @@ h1, h2, h3 {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 999px;
-  background-color: var(--color-suave);
-  color: var(--color-principal);
-  font-weight: 700;
+  background-color: #CAF0F8;
   font-size: 0.8rem;
 }
 
 .ahorro {
-  color: #0284C7;
+  color: #2E7D32;
   font-weight: 700;
 }
 
-/* FLEXBOX 2: FILTROS DE CATEGORÍAS */
 .filtros {
   display: flex;
   flex-wrap: wrap;
@@ -160,15 +152,15 @@ h1, h2, h3 {
 }
 
 .filtro {
-  border: 2px solid var(--color-principal);
+  border: 2px solid #0D3B66;
   background-color: white;
-  color: var(--color-principal);
+  color: #0D3B66;
   padding: 6px 16px;
   border-radius: 999px;
   transition: background-color 0.3s;
 }
 .filtro:hover, .filtro.activo {
-  background-color: var(--color-principal);
+  background-color: #0D3B66;
   color: white;
 }
 
@@ -186,24 +178,28 @@ h1, h2, h3 {
 
 #carrito {
   background-color: white;
-  border: 2px solid var(--color-acento);
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border: 2px solid #00B4D8;
+  padding: 16px; /*el relleno que se le pase (o 16px)*/
+  border-radius: 12px; /* esquinas redondeadas*/
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* sombra*/
   position: sticky;
   top: 16px;
 }
+@media (max-width: 992px) {
+  #carrito {
+    position: static;
+  }
+}
 
-/* 12. SELECTOR DE ATRIBUTO */
 a[target=_blank] {
-  color: var(--color-principal);
+  color: #0D3B66;
   font-weight: 700;
 }
 
 .pie {
   margin-top: 24px;
   padding-top: 12px;
-  border-top: 1px solid var(--color-suave);
+  border-top: 1px solid #CAF0F8;
   color: #52606D;
   font-size: 0.9rem;
 }
@@ -216,9 +212,22 @@ a[target=_blank] {
   --bs-btn-hover-color: #1F2933;
 }
 
+/* El aviso (alert) con el amarillo de la tienda */
 .alert-warning {
-  background-color: #FFF8E1;
-  border-color: #F9A825;
-  border-left: 6px solid #F9A825;
+  background-color: #CAF0F8;
+  border-color: #00B4D8;
+  border-left: 6px solid #00B4D8;
   border-radius: 12px;
+}
+
+/* BOOTSTRAP PERSONALIZADO 3: campos del formulario */
+.form-control,
+.form-select {
+  border: 2px solid #CAF0F8;
+  border-radius: 12px;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #00B4D8;
+  box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.25);
 }
