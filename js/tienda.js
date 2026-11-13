@@ -1,5 +1,5 @@
 // =============================================================
-// EcoTienda: el catalogo y el carrito, con JavaScript
+// Voltnergia: el catalogo y el carrito, con JavaScript
 // Cada linea tiene un comentario: QUE hace y PARA QUE.
 // =============================================================
 
@@ -100,7 +100,22 @@ function nombreCategoria(categoria) {
         return "Energía solar";
     }
 }
-// mesesRetorno: en cuántos meses el ahorro paga la compra
+// Funcion para que nos de el porcentaje de la energia que menos gasta el quipo nuevo
+function porcentajeAhorro(producto) {
+    return Math.round((producto.wattsAntes - producto.wattsDespues) / producto.wattsAntes * 100);
+}
+
+// Función para saber cuanto dinero se ahorraría un producto en un año
+function ahorroPesosAnio(producto) {
+    return ahorroPesosMes(producto) * 12;
+}
+
+// funcion si Lo que buscamos coincidde con el nombre del producto
+function coincideBusqueda(producto, texto) {
+    return producto.nombre.toLowerCase().includes(texto.toLowerCase());
+}
+
+// Funcion para saber en cuántos meses el ahorro paga la compra
 function mesesRetorno(total, ahorroMes) {
     return Math.ceil(total / ahorroMes);
 }
@@ -120,7 +135,7 @@ function mostrarProductos(categoria) {
             continue;
         }
         // Si el nombre no contiene lo que se escribió en el buscador, no se muestra
-        if (!producto.nombre.toLowerCase().includes(texto)) {
+        if (!coincideBusqueda(producto, texto)) {
             continue;
         }
         contenedor.innerHTML += `
@@ -131,6 +146,7 @@ function mostrarProductos(categoria) {
                    Ahorra <span class="ahorro">${ahorroKwhMes(producto).toFixed(1)} kWh</span> al mes.</p>
                 <p class="precio">${pesos(producto.precio)}</p>
                 <p>Ahorro al mes: <span class="ahorro">${pesos(ahorroPesosMes(producto))}</span></p>
+                <p>Gasta ${porcentajeAhorro(producto)} % menos energía. Ahorro al año: <span class="ahorro">${pesos(ahorroPesosAnio(producto))}</span></p>
                 <button class="btn btn-primary btn-sm" data-id="${producto.id}">Agregar al carrito</button>
             </article>`;
     }
