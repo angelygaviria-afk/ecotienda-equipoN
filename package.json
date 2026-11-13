@@ -1,5 +1,5 @@
 {
-  "name": "ecotienda",
+  "name": "volt-energia",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -12,5 +12,5 @@
   "devDependencies": {
     "sass": "^1.108.2"
   },
-  "description": ""
+  "description": "Volenergia: Una tienda dee productos energéticos eficientes"
 }
