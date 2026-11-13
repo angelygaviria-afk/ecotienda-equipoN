@@ -100,6 +100,10 @@ function nombreCategoria(categoria) {
         return "Energía solar";
     }
 }
+// mesesRetorno: en cuántos meses el ahorro paga la compra
+function mesesRetorno(total, ahorroMes) {
+    return Math.ceil(total / ahorroMes);
+}
 
 // --- DOM: escribir en la pagina las tarjetas de los productos ---
 // DOM = la pagina vista desde JavaScript: cada etiqueta del HTML es un objeto
@@ -189,7 +193,7 @@ function mostrarCarrito() {
         // En cuantos meses el ahorro paga la compra: el total dividido el ahorro de cada mes.
         // Ejemplo: 1217800 / 64410 = 18.9 meses
         // Math.ceil redondea HACIA ARRIBA: 18.9 -> 19 (con 18 meses todavia no alcanza)
-        const meses = Math.ceil(total / ahorroMes);
+        const meses = mesesRetorno(total, ahorroMes);
         // Escribe el ahorro y los meses en <p id="ahorro">, con un template string.
         // Ejemplo: "Ahorra $64.410 al mes: la compra se paga sola en 19 meses."
         document.querySelector("#ahorro").textContent =
