@@ -33,7 +33,7 @@
         <!-- h1: el titulo principal de esta pagina -->
         <h1>Catálogo</h1>
         <!-- p: un parrafo que explica la pagina -->
-        <p>Optimización y ahorro para tu consumo en tiempos de El Niño 2026..</p>
+        <p>Cada producto dice cuánto le ahorra al mes, con una tarifa de 950 COP/kWh.</p>
         <!-- nav: el menu, con un enlace (a) a cada pagina -->
         <nav class="menu">
             <!-- href: la pagina a la que lleva el enlace -->
@@ -48,7 +48,9 @@
 
     <!-- main: el contenido principal -->
     <main>
-        
+        <!-- barra de busqueda -->
+
+        <input type="text" id="buscador" class="form-control mb-3" placeholder="Buscar producto por nombre">
         <!-- div class="filtros": la caja con los botones para filtrar por categoria -->
         <div class="filtros">
             <!-- button: un BOTON. data-categoria: un dato PROPIO guardado en el boton
@@ -57,7 +59,8 @@
             <button class="filtro activo" data-categoria="todas">Todas</button>
             <!-- Los otros tres botones: uno por categoria -->
             <button class="filtro" data-categoria="iluminacion">Iluminación</button>
-            <button class="filtro" data-categoria="electrodomesticos">Electrodomésticos</button>
+            <button class="filtro" data-categoria="climatizacion">Climatización</button>
+            <button class="filtro" data-categoria="cocina">Cocina y hogar</button>
             <button class="filtro" data-categoria="solar">Energía solar</button>
         <!-- Cierra la caja de los filtros -->
         </div>
